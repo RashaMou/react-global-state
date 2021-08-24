@@ -1,9 +1,15 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { BOOKS } from "./constants";
 
 // Create context value that can be shared accross the application
 // exposes a provider that we can use to wrap around all the components where we want this state accessible
 export const AppContext = createContext();
+
+// this returns the value we passed in the Provider below (booksReducer)
+// This is just instead of calling let value = useContext(AppContext) in every component,
+export function useAppState() {
+  return useContext(AppContext);
+}
 
 // Reducer function and its initial state
 const appStateReducer = (state, action) => {
