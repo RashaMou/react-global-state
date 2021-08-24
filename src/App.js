@@ -1,15 +1,18 @@
 import BookList from "./components/BookList";
+import { AppStateProvider } from "./AppContext";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Reading Challenge</header>
-      <div className="lists">
-        <BookList />
-        <BookList completeList />
+    <AppStateProvider>
+      <div className="App">
+        <header className="App-header">Reading Challenge</header>
+        <div className="lists">
+          <BookList />
+          <BookList completeList />
+        </div>
       </div>
-    </div>
+    </AppStateProvider>
   );
 }
 
