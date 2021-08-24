@@ -1,4 +1,4 @@
-import { BOOKS } from "../constants";
+import { BOOKS } from "../../constants";
 
 export default function BookList({ completeList }) {
   return (
