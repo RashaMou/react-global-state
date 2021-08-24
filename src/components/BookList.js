@@ -9,7 +9,10 @@ export default function BookList({ completeList }) {
         {!completeList &&
           toRead.map((book, index) => {
             return (
-              <li key={index} onClick={() => console.log("HALLO")}>
+              <li
+                key={index}
+                onClick={() => dispatch({ type: "READ_BOOK", book: book })}
+              >
                 {book}
               </li>
             );
