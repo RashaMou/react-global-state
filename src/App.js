@@ -1,12 +1,13 @@
-import BookList from "./components/BookList";
 import { AppStateProvider } from "./AppContext";
 import "./App.css";
+import BookList from "./components/BookList";
+import Header from "./components/Header";
 
 function App() {
   return (
     <AppStateProvider>
       <div className="App">
-        <header className="App-header">Reading Challenge</header>
+        <Header />
         <div className="lists">
           <BookList />
           <BookList completeList />
