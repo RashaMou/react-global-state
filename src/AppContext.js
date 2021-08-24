@@ -14,6 +14,15 @@ export function useAppState() {
 // Reducer function and its initial state
 const appStateReducer = (state, action) => {
   switch (action.type) {
+    case "READ_BOOK": {
+      return {
+        ...state,
+        toRead: state.toRead.filter((book) => {
+          return book !== action.book;
+        }),
+        completed: [...state.completed, action.book],
+      };
+    }
     default:
       return state;
   }
