@@ -15,12 +15,14 @@ export function useAppState() {
 const appStateReducer = (state, action) => {
   switch (action.type) {
     case "READ_BOOK": {
+      let newToRead = state.toRead.filter((book) => {
+        return book !== action.book;
+      });
+      let newCompleted = [...state.completed, action.book];
       return {
         ...state,
-        toRead: state.toRead.filter((book) => {
-          return book !== action.book;
-        }),
-        completed: [...state.completed, action.book],
+        toRead: newToRead,
+        completed: newCompleted,
       };
     }
     case "UNDO_READ": {
@@ -31,6 +33,9 @@ const appStateReducer = (state, action) => {
           return book !== action.book;
         }),
       };
+    }
+    case "GET_FROM_LOCAL_STATE": {
+      return { ...state, toRead: action.toRead, completed: action.completed };
     }
     default:
       return state;
