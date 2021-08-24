@@ -20,7 +20,10 @@ export default function BookList({ completeList }) {
         {completeList &&
           completed.map((book, index) => {
             return (
-              <li key={index} onClick={() => console.log("HALLO")}>
+              <li
+                key={index}
+                onClick={() => dispatch({ type: "UNDO_READ", book: book })}
+              >
                 {book}
               </li>
             );

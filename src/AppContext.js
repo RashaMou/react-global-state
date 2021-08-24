@@ -23,6 +23,15 @@ const appStateReducer = (state, action) => {
         completed: [...state.completed, action.book],
       };
     }
+    case "UNDO_READ": {
+      return {
+        ...state,
+        toRead: [...state.toRead, action.book],
+        completed: state.completed.filter((book) => {
+          return book !== action.book;
+        }),
+      };
+    }
     default:
       return state;
   }
